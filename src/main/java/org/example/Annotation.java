@@ -30,7 +30,7 @@ public class Annotation {
             PDPage pdPage = doc.getPage(0);
             List annotations = pdPage.getAnnotations();
 
-            addHighlight(pdPage, annotations);
+            addHighlight(doc, pdPage, annotations);
             addRectangleWithText(doc, pdPage);
             //addText(doc, pdPage);
             addImage(doc, pdPage);
@@ -178,12 +178,15 @@ public class Annotation {
         // Create a content stream for the appearance stream
         // Close the content stream
         contentStream.close();
-
+        rubberStamp.setReadOnly(true);
+        rubberStamp.setNoRotate(true);
+        rubberStamp.setLocked(true);
         //Add the new RubberStamp to the document
         annotations.add(rubberStamp);
+        rubberStamp.constructAppearances(doc);
     }
 
-    private void addHighlight(PDPage pdPage, List<PDAnnotation> annotations) throws IOException {
+    private void addHighlight(PDDocument doc, PDPage pdPage, List<PDAnnotation> annotations) throws IOException {
         // Now add the highlight annotation, a highlight to PDFBox text
         PDAnnotationHighlight highlight = new PDAnnotationHighlight();
         PDColor red = new PDColor(new float[] { 1, 0, 0 }, PDDeviceRGB.INSTANCE);
@@ -220,6 +223,10 @@ public class Annotation {
 
         highlight.setQuadPoints(quads);
         highlight.setContents("Highlighted since it's important");
+        highlight.setReadOnly(true);
+        highlight.setNoRotate(true);
+        highlight.setLocked(true);
+        highlight.constructAppearances(doc);
         annotations.add(highlight);
 
     }
