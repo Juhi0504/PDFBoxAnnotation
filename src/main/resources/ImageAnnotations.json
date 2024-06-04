@@ -1,0 +1,73 @@
+{
+  "limit": 4,
+  "annotations": [
+    {
+      "id": "d2a78861-8007-4171-9f3d-b9c060ab9cf5",
+      "secondaryId": "6ce6513a-db33-472f-a46f-5b27e304b72f",
+      "documentId": "22e1a73e-c33b-4368-98c4-11a275bfa5da",
+      "pageNumber": 1,
+      "depth": 3,
+      "type": "CHECKMARK",
+      "llx": 66.94772,
+      "lly": 30.520647,
+      "height": 12.926392,
+      "width": 6.0708265,
+      "foregroundColor": "#53B700",
+      "createdBy": "9130359611781686",
+      "createdDate": "2024-06-03T10:37:34.971+0000",
+      "modifiedBy": "9130359611781686",
+      "modifiedDate": "2024-06-03T10:37:34.971+0000"
+    },
+    {
+      "id": "57c81281-cf11-4d0e-aab7-9cb9cb833f9c",
+      "secondaryId": "e52cd950-9278-4cf4-b2c2-ab0913256bfe",
+      "documentId": "22e1a73e-c33b-4368-98c4-11a275bfa5da",
+      "pageNumber": 1,
+      "depth": 1,
+      "type": "CHECKMARK",
+      "llx": 44.575603,
+      "lly": 24.895273,
+      "height": 5.745063,
+      "width": 2.698145,
+      "foregroundColor": "#53B700",
+      "createdBy": "9130359611781686",
+      "createdDate": "2024-05-30T04:44:00.490+0000",
+      "modifiedBy": "9130359611781686",
+      "modifiedDate": "2024-05-30T04:44:00.490+0000"
+    },
+    {
+      "id": "4883f569-8529-4810-a0bd-abdb97e2fd98",
+      "secondaryId": "f3b297f6-cd32-435f-9c0f-635327bc0052",
+      "documentId": "22e1a73e-c33b-4368-98c4-11a275bfa5da",
+      "pageNumber": 1,
+      "depth": 2,
+      "type": "STAMP",
+      "llx": 5.733558,
+      "lly": 19.928186,
+      "height": 6.1041293,
+      "width": 6.7453628,
+      "text": "NA",
+      "backgroundColor": "#F95700",
+      "createdBy": "9130359611781686",
+      "createdDate": "2024-06-03T03:42:02.198+0000",
+      "modifiedBy": "9130359611781686",
+      "modifiedDate": "2024-06-03T03:42:02.198+0000"
+    },
+    {
+      "id": "2fe832b7-b3bb-46b9-88f5-a9fd9f4a474b",
+      "secondaryId": "096d50c6-81c7-430a-9b97-b0f1827eb788",
+      "documentId": "22e1a73e-c33b-4368-98c4-11a275bfa5da",
+      "pageNumber": 1,
+      "type": "RECTANGLE",
+      "llx": 30.874537,
+      "lly": 58.987793,
+      "height": 12.220917,
+      "width": 7.0640035,
+      "backgroundColor": "#D0FF7B",
+      "createdBy": "9130359611781686",
+      "createdDate": "2024-05-22T07:45:33.797+0000",
+      "modifiedBy": "9130359611781686",
+      "modifiedDate": "2024-05-31T09:32:25.554+0000"
+    }
+  ]
+}
