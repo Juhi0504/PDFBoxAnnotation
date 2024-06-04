@@ -22,6 +22,71 @@ import org.apache.pdfbox.pdmodel.interactive.annotation.*;
 
 public class Annotation {
 
+    public void testPDFHighlight() throws IOException {
+        File file = new File("BaseImage.pdf");
+        PDDocument doc = null;
+        try {
+            doc = Loader.loadPDF(file);
+            PDPage pdPage = doc.getPage(0);
+
+            /*PDPageContentStream contentStream = new PDPageContentStream(doc, pdPage, AppendMode.APPEND, false);
+            //Setting the non stroking color
+            contentStream.setNonStrokingColor(Color.ORANGE);
+            //Drawing a rectangle
+            contentStream.addRect(100, 200, 200, 100);
+            //Drawing a rectangle
+            contentStream.fill();
+            contentStream.close();*/
+
+
+            List annotations = pdPage.getAnnotations();
+            PDAnnotationHighlight highlight = new PDAnnotationHighlight();
+            PDColor red = new PDColor(new float[] { 1, 0, 0 }, PDDeviceRGB.INSTANCE);
+            highlight.setColor(red);
+            highlight.setConstantOpacity((float)0.2);   // Make the highlight 20% transparent
+
+            // Set the rectangle containing the markup
+            PDRectangle position = new PDRectangle();
+
+            position.setLowerLeftX(100);
+            position.setLowerLeftY(200);
+            position.setUpperRightX(400);
+            position.setUpperRightY(300);
+            highlight.setRectangle(position);
+
+            // work out the points forming the four corners of the annotations
+            // set out in anti clockwise form (Completely wraps the text)
+            // OK, the below doesn't match that description.
+            // It's what acrobat 7 does and displays properly!
+            float[] quads = new float[8];
+
+            quads[0] = position.getLowerLeftX();  // x1
+            quads[1] = position.getUpperRightY()-2; // y1
+            quads[2] = position.getUpperRightX(); // x2
+            quads[3] = quads[1]; // y2
+            quads[4] = quads[0];  // x3
+            quads[5] = position.getLowerLeftY()-2; // y3
+            quads[6] = quads[2]; // x4
+            quads[7] = quads[5]; // y5
+
+            highlight.setQuadPoints(quads);
+            highlight.setReadOnly(true);
+            highlight.setNoRotate(true);
+            highlight.setLocked(true);
+            highlight.constructAppearances(doc);
+            annotations.add(highlight);
+
+            doc.save("BaseImageHighlighted.pdf");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        finally
+        {
+            doc.close();
+        }
+
+    }
     public void addAnnotations() throws IOException {
         File file = new File("source.pdf");
         PDDocument doc = Loader.loadPDF(file);
